@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server --open --contentBase src --hot",
+    "dev": "webpack-dev-server --open --contentBase src --hot --port 3000",
     "start": "webpack-dev-server --env development",
     "build": "webpack --env production"
   },
@@ -19,6 +19,7 @@
     "mint-ui": "^2.2.13",
     "url-loader": "^1.1.2",
     "vue": "^2.5.21",
+    "vue-resource": "^1.5.1",
     "vue-router": "^3.0.2",
     "webpack-cli": "^3.1.2"
   },
