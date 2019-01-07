@@ -1,17 +1,17 @@
 <template>
     <div>
         <ul class="mui-table-view">
-            <li class="mui-table-view-cell mui-media" v-for="item in list" :key="item.id">
-                <a href="javascript:;">
+            <li class="mui-table-view-cell mui-media" >
+                <router-link to="/home/newsinfo">
                     <img class="mui-media-object mui-pull-left" src="../../images/timg.jpg">
                     <div class="mui-media-body">
-                        <h1>{{item.title}}</h1>
+                        <h1>大众汽车因“尾气门”向德国检方认罚10亿欧元</h1>
                         <p class='mui-ellipsis'>
-                            <span>发表时间：2018-12-31 11:11:11</span>
+                            <span>发表时间：2018-06-14 06:55:53</span>
                             <span>点击：0次</span>
                         </p>
                     </div>
-                </a>
+                </router-link>
             </li>
 
 
@@ -25,13 +25,11 @@
         name: "",
         data(){
             return{
-                list:[],
+
 
             }
         },
-        created(){
-            this.getList()
-        },
+
         methods:{
             // getNewsList(){
             //     this.$http.get("http://www.phonegap100.com/appapi.php?a=getPortalList&catid=20&page=1").then(result=>{
@@ -41,21 +39,11 @@
             //     })
             // }
 
-           getList(){
 
-                this.$http.get("https://www.apiopen.top/journalismApi").then((result) => {
 
-                    this.list =result.data;
-                    this.list=this.list.data
-                    this.list=this.list.auto
-                    //不这么多分几步赋值不到
+                },
 
-                },function (err) {
-                    console.log(err);
-                })
-            }
 
-        }
     }
 </script>
 

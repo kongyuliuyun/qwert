@@ -10,10 +10,11 @@ Vue.use(VueResource)
 
 
 
-import {Header,Swipe, SwipeItem} from 'mint-ui'
+import {Header,Swipe, Button,SwipeItem} from 'mint-ui'
 Vue.component(Header.name,Header)
 Vue.component(Swipe.name, Swipe)
 Vue.component(SwipeItem.name, SwipeItem)
+Vue.component(Button.name, Button)
 //按需导入mint-ui中的组件
 
 
