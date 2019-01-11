@@ -1,57 +1,46 @@
  <template>
     <div class="goods-list">
-        <router-link class="goods-item" :to="'/home/goodsinfo/'+1" tag="div">
-            <img src="../../images/小米.jpg" />
-            <h1 class="title">小米（mi）小米Note 16G双网通版</h1>
+        <router-link class="goods-item" :to="'/home/goodsinfo/'+item.id"
+                     tag="div" v-for="item in list" :key="item.id">
+
+            <img :src="item.image" />
+            <h1 class="title">{{item.name}}</h1>
             <div class="info">
                 <p class="price">
-                    <span class="now">￥2199</span>
-                    <span class="old">￥2399</span>
+                    <span class="now">￥{{item.price}}</span>
+                    <span class="old">￥{{item.old}}</span>
                 </p>
                 <p class="sell">
                     <span>热卖中</span>
-                    <span>剩余60件</span>
+                    <span>剩余{{item.rest}}件</span>
                 </p>
             </div>
         </router-link>
-        <div class="goods-item">
-
-            <img src="../../images/Nikon.jpg" />
-            <h1 class="title">尼康（Nikon）D3300套机（18-55mm f/3.5-5.6G VRII）（黑色）</h1>
-            <div class="info">
-                <p class="price">
-                    <span class="now">￥2199</span>
-                    <span class="old">￥2399</span>
-                </p>
-                <p class="sell">
-                    <span>热卖中</span>
-                    <span>剩余60件</span>
-                </p>
-            </div>
-        </div>
-        <div class="goods-item">
-            <img src="../../images/小米.jpg" />
-            <h1 class="title">小米（mi）小米Note 16G双网通版</h1>
-            <div class="info">
-                <p class="price">
-                    <span class="now">￥2199</span>
-                    <span class="old">￥2399</span>
-                </p>
-                <p class="sell">
-                    <span>热卖中</span>
-                    <span>剩余60件</span>
-                </p>
-            </div>
-        </div>
 
     </div>
 </template>
 
 <script>
+    import mi from '../../images/小米.jpg'
+    import nikon from '../../images/Nikon.jpg'
+
+
     export default {
-        name: ""
+        name: "",
+        data(){
+            return{
+                list:[
+                    {id:1,name:'小米（mi）小米Note 16G双网通版',price:2199,old:2399,rest:60,image:mi},
+                    {id:2,name:'尼康（Nikon）D3300套机（18-55mm f/3.5-5.6G VRII）（黑色）',price:5199,old:7999,rest:60,image:nikon},
+                    {id:3,name:'小米（mi）小米Note 8G双网通版',price:1899,old:2199,rest:60,image:mi},
+                    {id:4,name:'小米（mi）小米Note 32G双网通版',price:2399,old:2599,rest:60,image:mi},
+                    {id:5,name:'小米（mi）小米Note 128G双网通版',price:2599,old:2799,rest:60,image:mi},
+                ],
+
+            }
+        }
     }
-</script>
+    </script>
 
 <style scoped>
 .goods-list{

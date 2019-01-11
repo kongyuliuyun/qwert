@@ -1,0 +1,41 @@
+
+{
+  "status": "0",
+  "result": [
+    {
+      "id": "1",
+      "name": "小米（mi）小米Note 16G双网通版",
+      "price":"2199",
+      "rest":"60",
+      "image": "../images/小米.jpg"
+    },
+    {
+      "id": "2",
+      "name": "尼康（Nikon）D3300套机（18-55mm f/3.5-5.6G VRII）（黑色）",
+      "price":"2199",
+      "rest":"60",
+      "image": "../images/Nikon.jpg"
+    },
+    {
+      "id": "3",
+      "name": "小米（mi）小米Note 8G双网通版",
+      "price":"1899",
+      "rest":"60",
+      "image": "../images/小米.jpg"
+    },
+    {
+      "id": "4",
+      "name": "小米（mi）小米Note 32G双网通版",
+      "price":"2399",
+      "rest":"60",
+      "image": "../images/小米.jpg"
+    },
+    {
+      "id": "5",
+      "name": "小米（mi）小米Note 128G双网通版",
+      "price":"2599",
+      "rest":"60",
+      "image": "../images/小米.jpg"
+    }
+  ]
+}

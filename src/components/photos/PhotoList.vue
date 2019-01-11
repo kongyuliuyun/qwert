@@ -5,7 +5,7 @@
                 <div class="mui-scroll">
                     <a class="mui-control-item mui-active" >
                         <!--v-for="item in cates" :key="item.cid"-->
-                        <!--{{item.title}}-->
+                        <!--{{item.title}}-->全部
                     </a>
                 </div>
             </div>

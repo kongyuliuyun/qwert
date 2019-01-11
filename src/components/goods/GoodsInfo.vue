@@ -1,6 +1,5 @@
 <template>
-    <div class="goodsinfo-container">
-
+    <div class="goodsinfo-container" >
 
         <transition @before-enter="beforeEnter"
                     @enter="enter"
@@ -35,7 +34,7 @@
                     <p class="price">
                         市场价：<del>￥2399</del>&nbsp;&nbsp;销售价<span class="now-price">￥2199</span>
                     </p>
-                    <p>购买数量：<numbox></numbox></p>
+                    <p>购买数量：<numbox @getcount="getSelectedCount"></numbox></p>
                     <p>
                         <mt-button type="primary" size="small">立即购买</mt-button>
                         <mt-button type="danger" size="small" @click="addToShopCar">加入购物车</mt-button>
@@ -79,10 +78,21 @@
         name: "",
         data(){
           return{
-              ballFlag:false//控制小球隐藏和显示
+              goodsinfo:[
+                  {id:1,name:'小米（mi）小米Note 16G双网通版',price:2199,rest:60,},
+                  // {id:2,name:'尼康（Nikon）D3300套机（18-55mm f/3.5-5.6G VRII）（黑色）',price:5199,rest:60,},
+                  // {id:3,name:'小米（mi）小米Note 16G双网通版',price:2199,rest:60,},
+                  // {id:4,name:'小米（mi）小米Note 16G双网通版',price:2199,rest:60,},
+                  // {id:5,name:'小米（mi）小米Note 16G双网通版',price:2199,rest:60,},
+              ],
+              ballFlag:false,//控制小球隐藏和显示
+              selectedCount:1//保存用户选择的商品数量
           }
         },
+
+
         methods:{
+
             // goDetail(id){
             //     $router.push('/home/goodsinfo/'+id)
             // },
@@ -95,6 +105,17 @@
             },
             addToShopCar(){
                 this.ballFlag=!this.ballFlag
+                var goodsinfo={
+                    id:this.goodsinfo.id,
+                    count:this.selectedCount,
+                    price:this.goodsinfo.price,
+                    selected:true
+                }
+                this.$store.commit("addToCar",goodsinfo)
+
+                 localStorage.setItem('car',JSON.stringify(state.car))
+
+
             },
             beforeEnter(el){
                 el.style.transform="translate(0,0)";
@@ -110,11 +131,14 @@
                 const yDist=badgePosition.top-ballPosition.top
 
                 el.style.transform=`translate(${xDist}px,${yDist}px)`
-                el.style.transition='all 1s cubic-bezier(.4,-0.3,1,.68'
+                el.style.transition='all 0.5s cubic-bezier(.4,-0.3,1,.68'
                 done()
             },
             afterEnter(el) {
                 this.ballFlag=!this.ballFlag
+            },
+            getSelectedCount(count){
+                this.selectedCount=count
             }
         },
         components:{

@@ -2,6 +2,16 @@ const path=require('path')
 const webpack=require('webpack')//启用热更新 第二步
 const htmlWebpackPlugin=require('html-webpack-plugin')
 const VueLoaderPlugin=require('vue-loader/lib/plugin')//vue-loader配置
+
+const portfinder=require('portfinder')
+const express=require('express')
+const app=express()
+const  appData=require('./static/shopgoodsinfo.json')//加载本地json
+const goodsList=appData.goodsList;
+const apiRoutes=express.Router();
+app.use('/api',apiRoutes)
+
+
 module.exports={
     entry:path.join(__dirname,'./src/main.js'),
     output:{
@@ -17,6 +27,16 @@ module.exports={
         new VueLoaderPlugin()//vue-loader配置
 
     ],
+    devServer: {
+      before(app){
+          app.get('/api/goodsList',(req,res)=>{
+              res.json({
+                  status:0,
+                  result:goodsList
+              })
+          })
+      }
+    },
     module: {
         rules: [
             {test:/\.css$/,use:['style-loader','css-loader']},
